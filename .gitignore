@@ -1,0 +1,37 @@
+# Visual Studio временные файлы
+.vs/
+bin/
+obj/
+[Dd]ebug/
+[Rr]elease/
+x64/
+x86/
+[Aa][Rr][Mm]/
+[Aa][Rr][Mm]64/
+bld/
+[Bb]in/
+[Oo]bj/
+[Ll]og/
+[Ll]ogs/
+
+# Пользовательские файлы
+*.rsuser
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# NuGet пакеты
+packages/
+*.nupkg
+# Папки NuGet v3
+project.lock.json
+project.assets.json
+*.nuget.props
+*.nuget.targets
+
+# Установочные файлы
+*.exe
+*.msi
+*.zip
+*.7z

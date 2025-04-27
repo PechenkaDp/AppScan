@@ -1,0 +1,211 @@
+﻿<Window x:Class="AppScan.Tester.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="AppScan Tester" Height="600" Width="800"
+        WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!-- Заголовок -->
+        <Border Background="#2196F3" Padding="10">
+            <TextBlock Text="AppScan - Инструмент тестирования" 
+                       Foreground="White" 
+                       FontSize="20" 
+                       FontWeight="Bold"/>
+        </Border>
+
+        <!-- Основное содержимое -->
+        <TabControl Grid.Row="1" Margin="10">
+            <!-- Проверка системных требований -->
+            <TabItem Header="Системные требования">
+                <Grid Margin="10">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+
+                    <TextBlock TextWrapping="Wrap" Margin="0,0,0,10">
+                        <Run FontWeight="Bold" FontSize="14">Проверка системных требований</Run>
+                        <LineBreak/>
+                        Тест проверяет соответствие системы минимальным требованиям для работы с AppScan:
+                        <LineBreak/>
+                        • Операционная система: Windows 7 или выше
+                        <LineBreak/>
+                        • Процессор: 1.6 ГГц или быстрее
+                        <LineBreak/>
+                        • Оперативная память: 2 ГБ или больше
+                        <LineBreak/>
+                        • Свободное место на диске: 500 МБ
+                        <LineBreak/>
+                        • .NET Framework: 4.6.1 или выше
+                        <LineBreak/>
+                        • Подключение к базе данных PostgreSQL
+                    </TextBlock>
+
+                    <TextBox x:Name="SystemTestResultsBox" 
+                             Grid.Row="1"
+                             IsReadOnly="True" 
+                             TextWrapping="Wrap"
+                             FontFamily="Consolas"
+                             BorderThickness="1"
+                             Padding="5"
+                             VerticalScrollBarVisibility="Auto"/>
+
+                    <StackPanel Grid.Row="2" Orientation="Horizontal" Margin="0,10,0,0">
+                        <Button x:Name="RunSystemTestButton" 
+                                Content="Запустить проверку" 
+                                Click="RunSystemTestButton_Click"
+                                Width="150" 
+                                Height="30" 
+                                Margin="0,0,10,0"/>
+
+                        <Button x:Name="SaveSystemTestResultsButton" 
+                                Content="Сохранить результаты" 
+                                Click="SaveSystemTestResultsButton_Click"
+                                Width="150" 
+                                Height="30"
+                                IsEnabled="False"/>
+                    </StackPanel>
+                </Grid>
+            </TabItem>
+
+            <!-- Нагрузочное тестирование -->
+            <TabItem Header="Нагрузочное тестирование">
+                <Grid Margin="10">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+
+                    <TextBlock TextWrapping="Wrap" Margin="0,0,0,10">
+                        <Run FontWeight="Bold" FontSize="14">Нагрузочное тестирование</Run>
+                        <LineBreak/>
+                        Этот тест имитирует одновременную работу нескольких пользователей с системой.
+                        <LineBreak/>
+                        Внимание: Тест создает реальную нагрузку на базу данных и может влиять на производительность системы.
+                    </TextBlock>
+
+                    <Grid Grid.Row="1" Margin="0,0,0,10">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+
+                        <TextBlock Grid.Row="0" Grid.Column="0" 
+                                   Text="Количество пользователей:" 
+                                   VerticalAlignment="Center"
+                                   Margin="0,0,10,0"/>
+                        <TextBox Grid.Row="0" Grid.Column="1" 
+                                 x:Name="UsersCountTextBox" 
+                                 Width="80" 
+                                 Text="30"
+                                 Margin="0,5"/>
+
+                        <TextBlock Grid.Row="1" Grid.Column="0" 
+                                   Text="Длительность теста (сек):" 
+                                   VerticalAlignment="Center"
+                                   Margin="0,0,10,0"/>
+                        <TextBox Grid.Row="1" Grid.Column="1" 
+                                 x:Name="TestDurationTextBox" 
+                                 Width="80" 
+                                 Text="60"
+                                 Margin="0,5"/>
+                    </Grid>
+
+                    <TextBox x:Name="LoadTestResultsBox" 
+                             Grid.Row="2"
+                             IsReadOnly="True" 
+                             TextWrapping="Wrap"
+                             FontFamily="Consolas"
+                             BorderThickness="1"
+                             Padding="5"
+                             VerticalScrollBarVisibility="Auto"/>
+
+                    <StackPanel Grid.Row="3" Orientation="Horizontal" Margin="0,10,0,0">
+                        <Button x:Name="RunLoadTestButton" 
+                                Content="Запустить тест" 
+                                Click="RunLoadTestButton_Click"
+                                Width="150" 
+                                Height="30" 
+                                Margin="0,0,10,0"/>
+
+                        <Button x:Name="SaveLoadTestResultsButton" 
+                                Content="Сохранить результаты" 
+                                Click="SaveLoadTestResultsButton_Click"
+                                Width="150" 
+                                Height="30"
+                                IsEnabled="False"/>
+                    </StackPanel>
+                </Grid>
+            </TabItem>
+
+            <!-- Проверка подключения -->
+            <TabItem Header="Проверка подключения">
+                <Grid Margin="10">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+
+                    <TextBlock TextWrapping="Wrap" Margin="0,0,0,10">
+                        <Run FontWeight="Bold" FontSize="14">Проверка подключения к базе данных</Run>
+                        <LineBreak/>
+                        Тест проверяет соединение с базой данных и структуру таблиц.
+                    </TextBlock>
+
+                    <Grid Grid.Row="1" Margin="0,0,0,10">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Grid.Column="0" 
+                                   Text="Строка подключения:" 
+                                   VerticalAlignment="Center"
+                                   Margin="0,0,10,0"/>
+                        <TextBox Grid.Column="1" 
+                                 x:Name="ConnectionStringTextBox" 
+                                 Margin="0,5"/>
+                    </Grid>
+
+                    <TextBox x:Name="ConnectionTestResultsBox" 
+                             Grid.Row="2"
+                             IsReadOnly="True" 
+                             TextWrapping="Wrap"
+                             FontFamily="Consolas"
+                             BorderThickness="1"
+                             Padding="5"
+                             VerticalScrollBarVisibility="Auto"/>
+
+                    <StackPanel Grid.Row="3" Orientation="Horizontal" Margin="0,10,0,0">
+                        <Button x:Name="TestConnectionButton" 
+                                Content="Проверить подключение" 
+                                Click="TestConnectionButton_Click"
+                                Width="180" 
+                                Height="30" 
+                                Margin="0,0,10,0"/>
+
+                        <Button x:Name="TestTablesButton" 
+                                Content="Проверить структуру таблиц" 
+                                Click="TestTablesButton_Click"
+                                Width="180" 
+                                Height="30"/>
+                    </StackPanel>
+                </Grid>
+            </TabItem>
+        </TabControl>
+    </Grid>
+</Window>

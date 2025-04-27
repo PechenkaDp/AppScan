@@ -1,0 +1,11 @@
+﻿<Window x:Class="AppScan.AssetWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Assets" Height="450" Width="800">
+    <Grid>
+        <DataGrid Name="AssetsDataGrid" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="10,10,10,50" />
+        <Button Name="AddAssetButton" Content="Add Asset" VerticalAlignment="Top" HorizontalAlignment="Left" Width="120" Margin="10,10,0,0" Click="AddAssetButton_Click"/>
+        <Button Name="EditAssetButton" Content="Edit Asset" VerticalAlignment="Top" HorizontalAlignment="Left" Width="120" Margin="140,10,0,0" Click="EditAssetButton_Click"/>
+        <Button Name="DeleteAssetButton" Content="Delete Asset" VerticalAlignment="Top" HorizontalAlignment="Left" Width="120" Margin="270,10,0,0" Click="DeleteAssetButton_Click"/>
+    </Grid>
+</Window>

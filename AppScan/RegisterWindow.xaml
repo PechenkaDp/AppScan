@@ -1,0 +1,92 @@
+﻿<Window x:Class="AppScan.RegisterWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Регистрация" Height="600" Width="450"
+        WindowStartupLocation="CenterScreen"
+        ResizeMode="NoResize">
+    <Grid Background="#F5F5F5">
+        <Border Background="White" 
+                CornerRadius="10" 
+                Margin="20" 
+                Padding="20"
+                BorderBrush="#DDDDDD"
+                BorderThickness="1">
+            <StackPanel VerticalAlignment="Center">
+                <TextBlock Text="Регистрация" 
+                         FontSize="24" 
+                         HorizontalAlignment="Center"
+                         Margin="0,0,0,30"/>
+
+                <TextBlock Text="Логин:" 
+                         Margin="0,0,0,5"/>
+                <TextBox Name="UsernameBox" 
+                         Height="40"
+                         FontSize="16"
+                         Padding="10,5"
+                         Margin="0,0,0,15"
+                         BorderThickness="1"
+                         BorderBrush="#DDDDDD"/>
+
+                <TextBlock Text="Email:" 
+                         Margin="0,0,0,5"/>
+                <TextBox Name="EmailBox" 
+                         Height="40"
+                         FontSize="16"
+                         Padding="10,5"
+                         Margin="0,0,0,15"
+                         BorderThickness="1"
+                         BorderBrush="#DDDDDD"/>
+
+                <TextBlock Text="Пароль:" 
+                         Margin="0,0,0,5"/>
+                <PasswordBox Name="PasswordBox" 
+                            Height="40"
+                            FontSize="16"
+                            Padding="10,5"
+                            Margin="0,0,0,15"
+                            BorderThickness="1"
+                            BorderBrush="#DDDDDD"/>
+
+                <TextBlock Text="Подтвердите пароль:" 
+                         Margin="0,0,0,5"/>
+                <PasswordBox Name="ConfirmPasswordBox" 
+                            Height="40"
+                            FontSize="16"
+                            Padding="10,5"
+                            Margin="0,0,0,20"
+                            BorderThickness="1"
+                            BorderBrush="#DDDDDD"/>
+
+                <Button Content="Зарегистрироваться" 
+                        Click="RegisterButton_Click"
+                        Height="40"
+                        Background="#2196F3"
+                        Foreground="White"
+                        BorderThickness="0"
+                        FontSize="16"
+                        Margin="0,0,0,15">
+                    <Button.Resources>
+                        <Style TargetType="Border">
+                            <Setter Property="CornerRadius" Value="5"/>
+                        </Style>
+                    </Button.Resources>
+                </Button>
+
+                <Button Content="Вернуться к входу" 
+                        Click="BackToLogin_Click"
+                        Height="40"
+                        Background="Transparent"
+                        Foreground="#2196F3"
+                        BorderThickness="1"
+                        BorderBrush="#2196F3"
+                        FontSize="16">
+                    <Button.Resources>
+                        <Style TargetType="Border">
+                            <Setter Property="CornerRadius" Value="5"/>
+                        </Style>
+                    </Button.Resources>
+                </Button>
+            </StackPanel>
+        </Border>
+    </Grid>
+</Window>

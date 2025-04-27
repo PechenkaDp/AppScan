@@ -1,0 +1,17 @@
+﻿<Window x:Class="AppScan.TaskWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Task Window" Height="450" Width="800">
+    <Grid>
+        <DataGrid Name="TasksDataGrid" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="10,10,10,50"/>
+
+        <ComboBox Name="StatusComboBox" VerticalAlignment="Top" HorizontalAlignment="Left" Width="150" Margin="10,10,0,0">
+            <ComboBoxItem Content="In Progress"/>
+            <ComboBoxItem Content="Completed"/>
+            <ComboBoxItem Content="Assigned"/>
+            <ComboBoxItem Content="Overdue"/>
+        </ComboBox>
+
+        <Button Name="UpdateStatusButton" Content="Update Status" VerticalAlignment="Top" HorizontalAlignment="Left" Width="150" Margin="180,10,0,0" Click="UpdateStatusButton_Click"/>
+    </Grid>
+</Window>
